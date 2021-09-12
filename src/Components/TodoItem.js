@@ -1,8 +1,12 @@
-import { render } from "@testing-library/react";
 import React from "react";
 import Buttons from "./Buttons";
+import propsTypes from 'prop-types'
 
-const TodoItem = () => {
+const TodoItem = ({todoname, del }) => {
+
+  const delbyid = (id) =>{
+    del(id)
+  }
   return (
     <div
       style={{
@@ -16,13 +20,24 @@ const TodoItem = () => {
         borderRadius: 6,
       }}
     >
-      <h2>List Item</h2>
+      <div style={{marginTop:10}}>
+        <h2>{todoname.acara}</h2>
+      </div>
       <div style={{ display: "flex" }}>
-        <Buttons text="edit" fungsi="edit"/>
-        <Buttons text="delete" fungsi="delete"/>
+        <Buttons text="edit" fungsi="edit" />
+        <Buttons
+          text="delete"
+          fungsi="delete"
+          action={() => delbyid(todoname.id)}
+        />
       </div>
     </div>
   );
+};
+
+TodoItem.propsTypes = {
+  todoname: propsTypes.object.isRequired,
+  delete: propsTypes.func.isRequired,
 };
 
 export default TodoItem;

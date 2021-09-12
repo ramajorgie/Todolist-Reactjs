@@ -1,6 +1,23 @@
 import React from 'react';
+import Buttons from './Buttons';
 
 class FormInput extends React.Component{
+    state ={
+      text : ''
+    }
+
+    ubahTulisan =(e) => {
+      this.setState({text : e.target.value})
+    }
+
+    submit =(e) =>{
+      e.preventDefault();
+      if (this.state.text !== ''){
+        this.props.add(this.state.text)
+      }
+      this.setState({text:''})
+    }
+
     render(){
         return (
           <div>
@@ -24,8 +41,11 @@ class FormInput extends React.Component{
                   height: 20,
                   justifyContent: "space-between",
                 }}
+                value={this.state.text}
+                onSubmit={this.submit}
+                onChange={this.ubahTulisan}
               />
-              <button>Add</button>
+              <Buttons text="info" fungsi="info" action={this.submit}/>
             </form>
           </div>
         );

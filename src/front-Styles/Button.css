@@ -1,7 +1,25 @@
+.btn {
+    width: 5rem;
+    height: 1.7rem;
+    border: none;
+    margin: 0 0.2rem;
+    color: white;
+
+}
+.btn:focus{
+    outline: none;
+}
 .btn-edit{
-    color: green;
+    background: green;
+    color: white;
 }
 
 .btn-delete{
-    color: red;
+    margin-left: 10;
+    background: red;
+    color: white;
+    padding-right:10;
+}
+.btn-info{
+    background: #EB92BE;
 }
