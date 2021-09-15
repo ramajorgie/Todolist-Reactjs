@@ -46,11 +46,15 @@ class FormInput extends React.Component{
                 onChange={this.ubahTulisan}
               />
               <Buttons text="info" fungsi="info" action={this.submit}/>
+              <Buttons/>
             </form>
           </div>
         );
     }
 }
+
+
+
 
 export default FormInput;
 
